@@ -1,6 +1,6 @@
-#![feature(core_intrinsics)]
-#![feature(test)]
-
+#![cfg_attr(feature = "unstable", feature(core_intrinsics))]
+#![cfg_attr(feature = "unstable", feature(test))]
+#![cfg(feature = "unstable")]
 extern crate test;
 
 mod freqs;
@@ -9,7 +9,7 @@ mod ringbuffer;
 
 pub use mfcc::*;
 
-#[cfg(test)]
+#[cfg_attr(feature = "undstable", cfg(test))]
 mod tests {
     use test::Bencher;
     use crate::mfcc::Transform;
